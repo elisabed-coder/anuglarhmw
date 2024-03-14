@@ -18,4 +18,6 @@ export class UserComponent {
       this.eventEmitted = true;
     }
   }
+
+  // homework2 task1 ngswitch
 }

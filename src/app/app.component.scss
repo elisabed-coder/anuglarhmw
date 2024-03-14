@@ -1,0 +1,109 @@
+.highlight-v2 {
+  .green {
+    background-color: green;
+  }
+
+  .yellow {
+    background-color: yellow;
+  }
+
+  .cyan {
+    background-color: cyan;
+  }
+}
+
+// 3.. highlight-directive-final-anim
+
+.yellowhover:hover {
+  background-color: yellow;
+}
+
+.greenhover:hover {
+  background-color: green;
+}
+
+.cyanhover:hover {
+  background-color: cyan;
+}
+
+.containersP {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.defaultclass {
+  color: violet;
+}
+
+///////
+
+.highlightme-txt {
+  display: flex;
+  gap: 20px;
+}
+.violettxt {
+  color: violet;
+}
+
+.animationofP {
+  animation: mySpinner 2s infinite;
+}
+
+@keyframes mySpinner {
+  from {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.higlight-direc {
+  .green {
+    color: green;
+  }
+
+  .yellow {
+    color: yellow;
+  }
+
+  .cyan {
+    color: cyan;
+  }
+}
+
+p span {
+  color: red;
+  font-size: 70%;
+}
+
+.unless {
+  border: 2px solid;
+  padding: 6px;
+}
+
+p.unless {
+  width: 500px;
+}
+
+button.a,
+span.a,
+.unless.a {
+  color: red;
+  border-color: gold;
+  background-color: yellow;
+  font-size: 100%;
+}
+
+button.b,
+span.b,
+.unless.b {
+  color: black;
+  border-color: green;
+  background-color: lightgreen;
+  font-size: 100%;
+}

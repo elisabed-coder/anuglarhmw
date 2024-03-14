@@ -8,3 +8,158 @@
 <p>Anna</p>
 
 <app-user (choiceMade)="onChoiseMade($event)"></app-user>
+
+<!-- homework2 task1 ngswitch -->
+<br />
+<br />
+<h1>ngswitch Binding</h1>
+<p>pick your favourite meal</p>
+<input type="radio" [(ngModel)]="feature" value="Teapot" />
+<label for="Teapot">Teapot</label><br />
+<input type="radio" [(ngModel)]="feature" value="Lamp" />
+<label for="Lamp">Lamp</label><br />
+<input type="radio" [(ngModel)]="feature" value="Phone" />
+<label for="Phone">Phone</label><br />
+<input type="radio" [(ngModel)]="feature" value="Television" />
+<label for="Television">Television</label><br />
+<input type="radio" [(ngModel)]="feature" value="Fishbowl" />
+<label for="Fishbowl">Fishbowl</label><br />
+<div [ngSwitch]="feature">
+  <p *ngSwitchCase="'Teapot'">I'm a little Teapot, short and stout!</p>
+  <p *ngSwitchCase="'Lamp'">
+    This is the brightest Lamp in town. Are you as bright as Lamp?
+  </p>
+  <p *ngSwitchCase="'Phone'">Which is the slimmest Phone?</p>
+  <p *ngSwitchCase="'Television'">Has anyone seen my Television?</p>
+  <p *ngSwitchCase="'Fishbowl'">Fishbowl is strange and mysterious.</p>
+</div>
+<br />
+<br />
+<!-- 2. highlight-directive-v2-anim  -->
+<section class="highlight-v2">
+  <h1>My First Attribute Directive</h1>
+  <p>Pick a higlight color</p>
+  <form #colorForm="ngForm">
+    <input
+      type="radio"
+      value="green"
+      [(ngModel)]="selectedColor"
+      name="color"
+    />
+    <label for="green">green</label>
+    <input
+      type="radio"
+      value="yellow"
+      [(ngModel)]="selectedColor"
+      name="color"
+    />
+    <label for="yellow">yellow</label>
+    <input type="radio" value="cyan" [(ngModel)]="selectedColor" name="color" />
+    <label for="cyan">cyan</label>
+  </form>
+  <br />
+  <p [ngClass]="selectedColor">Higlight me!</p>
+</section>
+<!-- 3.. highlight-directive-final-anim  -->
+<!-- <h1>My First Attribute Directive</h1>
+<p>Pick a highlihgt color</p>
+<form #colorForm="ngForm">
+  <input
+    type="radio"
+    value="greenhover"
+    [(ngModel)]="hoverColor"
+    name="color"
+  />
+  <label for="green">green</label>
+  <input
+    type="radio"
+    value="yellowhover"
+    [(ngModel)]="hoverColor"
+    name="color"
+  />
+  <label for="yellow">yellow</label>
+  <input type="radio" value="cyanhover" [(ngModel)]="hoverColor" name="color" />
+  <label for="cyan">cyan</label>
+</form>
+<div class="containersP">
+  <div>
+    <p [ngClass]="hoverColor">Higlight me!</p>
+    <p [ngClass]="hoverColor">Higlight me too!</p>
+  </div>
+  <div *ngIf="active">
+    <p class="defaultclass">no default color blinding</p>
+    <p class="defaultclass">with 'violet' color binding'</p>
+  </div>
+  <p appHighlight>Highlight me</p>
+</div> -->
+
+<!-- 3.. highlight-directive-final-anim  -->
+<section class="higlight-direc">
+  <h1>My First Attribute Directive</h1>
+  <p>Pick a highlihgt color</p>
+  <div>
+    <input
+      type="radio"
+      value="green"
+      name="colors"
+      (click)="changeText = true; color = 'green'"
+      [(ngModel)]="txtcolor"
+    />green
+    <input
+      type="radio"
+      value="yellow"
+      name="colors"
+      (click)="changeText = true; color = 'yellow'"
+      [(ngModel)]="txtcolor"
+    />yellow
+    <input
+      type="radio"
+      value="cyan"
+      name="colors"
+      (click)="changeText = true; color = 'cyan'"
+      [(ngModel)]="txtcolor"
+    />cyan
+  </div>
+  <div class="highlightme-txt">
+    <div>
+      <p appHighlight="red">Higlight me!</p>
+      <p [appHighlight]="color">Higlight me too!</p>
+    </div>
+    <ng-container [ngSwitch]="changeText">
+      <div *ngSwitchCase="false" class="violettxt">
+        <p>no default color blinding</p>
+        <p>with 'violet' color binding'</p>
+      </div>
+      <p *ngSwitchCase="true" class="animationofP" [ngClass]="txtcolor">
+        Highlight me
+      </p>
+    </ng-container>
+  </div>
+</section>
+
+<!-- 4. unless-anim აქ ngIf  -->
+<section class="unless-anim"></section>
+
+<h2 id="appUnless">UnlessDirective</h2>
+<p>
+  The condition is currently
+  <span [ngClass]="{ a: !condition, b: condition, unless: true }">{{
+    condition
+  }}</span
+  >.
+  <button
+    type="button"
+    (click)="condition = !condition"
+    [ngClass]="{ a: condition, b: !condition }"
+  >
+    Toggle condition to {{ condition ? "false" : "true" }}
+  </button>
+</p>
+
+<p *appUnless="condition" class="unless a">
+  (A) This paragraph is displayed because the condition is false.
+</p>
+<p *appUnless="!condition" class="unless b">
+  (B) Although the condition is true, this paragraph is displayed because
+  appUnless is set to false.
+</p>
